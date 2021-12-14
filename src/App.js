@@ -6,10 +6,10 @@ import Greeter from "./artifacts/contracts/Greeter.sol/Greeter.json"
 const greeterAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3"
 
 const App = () => {
-  const [greeting, setGreetingValue] = useState()
+  const [greeting, setGreetingValue] = useState("")
 
   const requestAccount = async () => {
-    await window.ethereum.request({ method: "eth_request" })
+    await window.ethereum.request({ method: "eth_requestAccounts" })
   }
 
   const fetchGreeting = async () => {
@@ -37,6 +37,7 @@ const App = () => {
       const signer = provider.getSigner()
       const contract = new ethers.Contract(greeterAddress, Greeter.abi, signer)
       const transaction = await contract.setGreeting(greeting)
+      setGreetingValue(" ")
       await transaction.wait()
       fetchGreeting()
     }
@@ -46,10 +47,11 @@ const App = () => {
     <div className="App">
       <header className="App-header">
         <button onClick={fetchGreeting}>Fetch Greeting</button>
-        <button onClick={setGreeting}>Fetch Greeting</button>
+        <button onClick={setGreeting}>Set Greeting</button>
         <input
           onChange={(e) => setGreetingValue(e.target.value)}
           placeholder="Set greeting"
+          value={greeting}
         />
       </header>
     </div>
