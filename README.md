@@ -1,15 +1,20 @@
-# Basic Sample Hardhat Project
+# Learning about dapps
+You will need:
+- Metamask
+- Basic understanding about blockchains
+- Knowledge about Ethereum wouldnt hurt
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts.
-
-Try running some of the following tasks:
+After pulling down the code, try running the following:
 
 ```shell
-npx hardhat accounts
-npx hardhat compile
-npx hardhat clean
-npx hardhat test
 npx hardhat node
-node scripts/sample-script.js
-npx hardhat help
 ```
+Grab the private key from "account 0" and import the account into your Metamask.  
+Next, run the following:
+
+```shell
+npx hardhat run scripts/deploy.js --network localhost
+yarn start
+```
+
+We aren't using any real coins in this project. Hardhat creates dummy eth for us to play with.
