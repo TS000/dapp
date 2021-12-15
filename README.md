@@ -17,4 +17,9 @@ npx hardhat run scripts/deploy.js --network localhost
 yarn start
 ```
 
+Then go into the UI of the React app and open a debug console.
+After clicking the button "Fecth Greeting" you should see a message in the console.
+Try updating the message by adding new text to the input field and clicking the button "Set Greeting"
+
 We aren't using any real coins in this project. Hardhat creates dummy eth for us to play with.
+Inspired by this video by Nader Dabit https://www.youtube.com/watch?v=a0osIaAOFSE&t=1433s
